@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e2a44;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    max-width: 400px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #ffd700;
+}
+
+header h1 span {
+    color: #fff;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.timer div {
+    display: inline-block;
+    margin: 0 10px;
+    background: #2c3e50;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    width: 80%;
+    background: #34495e;
+    border-radius: 5px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 10px;
+    background: #ffd700;
+    border-radius: 5px;
+}
+
+button {
+    background: #ffd700;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.community .links a {
+    display: inline-block;
+    margin: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.community .links img {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+}
