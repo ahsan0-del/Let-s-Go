@@ -3,60 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>British Dog Presale</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>RoKo Fun - BANZAI Meme Pool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF5C00;
+            --secondary: #FFD700;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --gray: #F5F5F5;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: var(--gray);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .wallet-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .pool-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .pool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .pool-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .pool-prize {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .stake-form {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stake-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        
+        .stake-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .activity-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .activity-item {
+            background-color: var(--gray);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .winner {
+            background-color: rgba(255, 215, 0, 0.2);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            font-weight: bold;
+        }
+        
+        .leaderboard {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .leaderboard th, .leaderboard td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .leaderboard tr:nth-child(even) {
+            background-color: var(--gray);
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .wallet-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .modal-content {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 400px;
+            max-width: 90%;
+        }
+        
+        .wallet-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .wallet-option:hover {
+            background-color: var(--gray);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="british-dog-logo.png" alt="British Dog Logo" class="logo">
-            <h1>British Dog <span>Presale</span></h1>
-            <p>Welcome to the official presale of British Dog — the most proper meme coin with class, bark, and a pint of charm.</p>
-        </header>
-        <section class="countdown">
-            <h2>Presale Ends In:</h2>
-            <div class="timer">
-                <div><span id="days">6</span> Days</div>
-                <div><span id="hours">23</span> Hours</div>
-                <div><span id="minutes">46</span> Minutes</div>
-                <div><span id="seconds">21</span> Seconds</div>
-            </div>
-        </section>
-        <section class="progress">
-            <p>Progress <span>2.3% Raised</span></p>
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 2.3%;"></div>
-            </div>
-            <p>2.25 BNB <span>Target: 100 BNB</span></p>
-        </section>
-        <section class="contribution">
-            <h3>Send BNB to:</h3>
-            <p>0xdf21b5046cdd2ee9d7dd2a6f8c01d5676997762</p>
-            <button onclick="navigator.clipboard.writeText('0xdf21b5046cdd2ee9d7dd2a6f8c01d5676997762')">Copy Address</button>
-            <p>Network: Binance Smart Chain (BEP20)</p>
-            <p>Wallet: MetaMask, Trust Wallet</p>
-            <p>Limits: Min: 0.01 BNB | Max: 5 BNB</p>
-            <button>Check My Contribution</button>
-            <button>Connect Wallet</button>
-            <p>Tokens will be airdropped after the 7-day presale ends</p>
-        </section>
-        <section class="community">
-            <h2>Join Our Community</h2>
-            <div class="links">
-                <a href="#"><img src="telegram-icon.png" alt="Telegram"> Telegram</a>
-                <a href="#"><img src="twitter-icon.png" alt="Twitter"> Twitter</a>
-                <a href="#"><img src="discord-icon.png" alt="Discord"> Discord</a>
-                <a href="#"><img src="youtube-icon.png" alt="YouTube"> YouTube</a>
-            </div>
-        </section>
-        <section class="token-details">
-            <h2>Token Details</h2>
-            <p>Total Supply: 1,000,000 BDOG</p>
-            <p>Presale Price: 1 BNB = 50,000 BDOG</p>
-            <p>Network: Binance Smart Chain</p>
-            <p>Listing Date: After presale ends</p>
-        </section>
+    <div class="navbar">
+        <div class="logo">RoKo Fun</div>
+        <button class="wallet-btn" id="connectWallet">
+            <i class="fas fa-wallet"></i>
+            Connect Wallet
+        </button>
     </div>
-    <script src="script.js"></script>
+    
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active">Pool</div>
+            <div class="tab">Activity</div>
+            <div class="tab">Leaderboard</div>
+            <div class="tab">Game Rules</div>
+        </div>
+        
+        <div class="pool-card">
+            <div class="pool-header">
+                <div class="pool-title">BANZAI</div>
+                <div class="pool-prize">Prize: 0.09 BNB ($69.2)</div>
+            </div>
+            
+            <div>BSC Light v2 Pool</div>
+            <div>Your chance: 0.0%</div>
+            
+            <div class="stake-form">
+                <input type="number" class="stake-input" placeholder="0.01" min="0.01" step="0.01">
+                <button class="stake-btn">STAKE BNB</button>
+            </div>
+            
+            <h3>Activity</h3>
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <span>0x0487...8765 staked 0.01 BNB ($7)</span>
+                    <span>7d ago</span>
+                </li>
+                <li class="activity-item winner">
+                    <span>0xdbca...9c78 won 0.09 BNB ($69)</span>
+                    <span>10d ago</span>
+                </li>
+                <li class="activity-item">
+                    <span>0xe011...16cc staked 0.01 BNB ($7)</span>
+                    <span>10d ago</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="pool-card">
+            <h2>Leaderboard</h2>
+            <table class="leaderboard">
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Rounds</th>
+                        <th>Profit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. 0xbab7...1373</td>
+                        <td>15</td>
+                        <td>$4746.46</td>
+                    </tr>
+                    <tr>
+                        <td>2. 0x2a5f...9aad</td>
+                        <td>12</td>
+                        <td>$4154.12</td>
+                    </tr>
+                    <tr>
+                        <td>3. 0x8147...67b8</td>
+                        <td>8</td>
+                        <td>$1905.76</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pool-card">
+            <h2>Game Rules</h2>
+            <p>1. Stake BNB to enter the pool</p>
+            <p>2. Each stake increases your chance to win</p>
+            <p>3. 90% of the pool goes to the winner</p>
+            <p>4. 10% is reserved for developers and ecosystem</p>
+            <p>5. Winner is selected randomly with weighted chances</p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 RoKo Fun - All rights reserved</p>
+    </div>
+    
+    <!-- Wallet Connect Modal -->
+    <div class="wallet-modal" id="walletModal">
+        <div class="modal-content">
+            <h2>Connect Wallet</h2>
+            <div class="wallet-option" id="metamask">
+                <i class="fab fa-ethereum" style="margin-right: 10px; font-size: 1.5rem;"></i>
+                MetaMask
+            </div>
+            <div class="wallet-option" id="walletConnect">
+                <i class="fas fa-wallet" style="margin-right: 10px; font-size: 1.5rem;"></i>
+                WalletConnect
+            </div>
+            <div class="wallet-option" id="trustWallet">
+                <i class="fas fa-coins" style="margin-right: 10px; font-size: 1.5rem;"></i>
+                Trust Wallet
+            </div>
+            <button style="margin-top: 1rem; width: 100%; padding: 0.8rem; background-color: #ccc; border: none; border-radius: 10px;" id="closeModal">Close</button>
+        </div>
+    </div>
+    
+    <script>
+        // Wallet connection functionality
+        document.getElementById('connectWallet').addEventListener('click', function() {
+            document.getElementById('walletModal').style.display = 'flex';
+        });
+        
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('walletModal').style.display = 'none';
+        });
+        
+        // Simulate wallet connection
+        document.getElementById('metamask').addEventListener('click', function() {
+            alert('MetaMask connection would be implemented here with Web3.js or Ethers.js');
+            document.getElementById('walletModal').style.display = 'none';
+            document.getElementById('connectWallet').innerHTML = '<i class="fas fa-wallet"></i> 0xb7...F409f8';
+        });
+        
+        // Tab switching
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                // Here you would add code to show/hide different content sections
+            });
+        });
+    </script>
+    
+    <!-- Include Web3.js or Ethers.js for actual wallet connection -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script>
+        // Actual wallet connection implementation would go here
+        // Using your Infura API: https://mainnet.infura.io/v3/cd3af0daf5c7459993b64897061c3f3b
+    </script>
 </body>
 </html>
